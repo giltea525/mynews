@@ -20,7 +20,7 @@ Route::get('/', function () {
 use App\Http\Controllers\Admin\NewsController;
 Route::controller(NewsController::class)->prefix('admin')->group(function()
 {
-    Route::get('news/create', 'add');
+    Route::get('news/create', 'add')->middleware('auth');
 });
 
 // 課題3：Laravel09
@@ -31,6 +31,9 @@ Route::get('xxx', [AAAController::class, 'bbb']);
 use App\Http\Controllers\Admin\ProfileController;
 Route::controller(ProfileController::class)->prefix('admin/profile')->group(function()
 {
-    Route::get('create', 'add');
-    Route::get('edit', 'edit');
+    Route::get('create', 'add')->middleware('auth');
+    Route::get('edit', 'edit')->middleware('auth');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
