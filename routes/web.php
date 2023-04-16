@@ -48,3 +48,11 @@ Route::controller(ProfileController::class)->prefix('admin')->name('admin.')->mi
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// 追記 Laravel19
+use App\Http\Controllers\NewsController as PublicNewsController;
+Route::get('/', [PublicNewsController::class, 'index'])->name('news.index');
+
+// 追記 Laravel19：課題
+use App\Http\Controllers\ProfileController as PublicProfileController;
+Route::get('/', [PublicProfileController::class, 'index'])->name('profile.index');
