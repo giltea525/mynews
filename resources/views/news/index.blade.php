@@ -49,6 +49,8 @@
                                 @endif
                             </div>
                         </div>
+                        <p>PHP/Laravelコース - AWSへのデプロイ - 2</p>
+                            
                     </div>
                     <hr color="#c0c0c0">
                 @endforeach
